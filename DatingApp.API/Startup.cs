@@ -46,6 +46,7 @@ namespace DatingApp.API
             // Add repo's
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
+            services.AddScoped<LogUserActivity>();
             // Authorization
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
@@ -57,6 +58,7 @@ namespace DatingApp.API
                         ValidateAudience = false,
                     };
                 });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
